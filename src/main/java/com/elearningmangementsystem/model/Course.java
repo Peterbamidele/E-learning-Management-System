@@ -32,7 +32,4 @@ public class Course {
     @ManyToMany
     private List <Student> student;
 
-
-
-
 }

@@ -1,7 +1,7 @@
 package com.elearningmangementsystem.controller;
 
 import com.elearningmangementsystem.model.Course;
-import com.elearningmangementsystem.service.CourseService;
+import com.elearningmangementsystem.service.serviceImpl.CourseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,35 +9,35 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping ("/")
+//@RequestMapping ("/")
 public class CourseController {
 
     @Autowired
-    private CourseService courseService;
+    private CourseServiceImpl courseServiceImpl;
 
-    @GetMapping("/courses")
+    @GetMapping("/")
     public List<Course> getAllCourse(){
-        return courseService.getAllCourse();
+        return courseServiceImpl.getAllCourse();
     }
 
     @GetMapping("/coureses/{id}")
     public Optional<Course> getCourse(@PathVariable Integer id){
-        return courseService.getCourse(id);
+        return courseServiceImpl.getCourse(id);
     }
 
     @PostMapping("/courses")
     public void addCourse(@RequestBody Course course){
-        courseService.allCourse(course);
+        courseServiceImpl.allCourse(course);
     }
 
     @PutMapping("/course/{id}")
     public void updateCourse(@RequestBody Course course, @PathVariable Integer id){
-        courseService.updateCourse(course, id);
+        courseServiceImpl.updateCourse(course, id);
     }
 
     @DeleteMapping("/courses/{id}")
     public void deleteCourse(@PathVariable Integer id){
-        courseService.deleteCourse(id);
+        courseServiceImpl.deleteCourse(id);
     }
 
 

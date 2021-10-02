@@ -1,7 +1,7 @@
 package com.elearningmangementsystem.controller;
 
 import com.elearningmangementsystem.model.Fee;
-import com.elearningmangementsystem.service.FeeService;
+import com.elearningmangementsystem.service.serviceImpl.FeeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,31 +13,31 @@ import java.util.Optional;
 public class FeeController {
 
     @Autowired
-    private FeeService feeService;
+    private FeeServiceImpl feeServiceImpl;
 
     @GetMapping("/fees")
     public List<Fee> getAllFee(){
-        return feeService.getAllFee();
+        return feeServiceImpl.getAllFee();
     }
 
     @GetMapping("/fees/{id}")
     public Optional<Fee> getFee(@PathVariable Integer id){
-        return feeService.getFee(id);
+        return feeServiceImpl.getFee(id);
     }
 
     @PostMapping("/fees")
     public void addFee(@RequestBody Fee fee){
-        feeService.addFee(fee);
+        feeServiceImpl.addFee(fee);
     }
 
     @PutMapping("/fees/{id}")
     public void updateFee(@RequestBody Fee fee, @PathVariable Integer id){
-        feeService.updateFee(id, fee);
+        feeServiceImpl.updateFee(id, fee);
     }
 
     @DeleteMapping("/fees/{id}")
     public void deleteFee(@PathVariable Integer id){
-        feeService.deleteFee(id);
+        feeServiceImpl.deleteFee(id);
     }
 
 

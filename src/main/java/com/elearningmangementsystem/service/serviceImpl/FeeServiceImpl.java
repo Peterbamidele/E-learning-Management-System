@@ -1,4 +1,4 @@
-package com.elearningmangementsystem.service;
+package com.elearningmangementsystem.service.serviceImpl;
 
 import com.elearningmangementsystem.model.Fee;
 import com.elearningmangementsystem.repository.FeeRepository;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class FeeService {
+public class FeeServiceImpl {
 
     @Autowired
     private FeeRepository feeRepository;
@@ -19,7 +19,7 @@ public class FeeService {
         return fees;
     }
 
-    public Optional<Fee> getFee(Integer id) {
+    public Optional<Fee>getFee(Integer id) {
        return feeRepository.findById(id);
     }
 

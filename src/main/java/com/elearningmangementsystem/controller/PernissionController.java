@@ -17,7 +17,7 @@ public class PernissionController {
     private PermissionService permissionService;
 
     @GetMapping("/permissions")
-    public List <Permission> getAllPermisson(){
+    public List <Permission> getAllPermission(){
         return permissionService.getAllPermission();
     }
 
